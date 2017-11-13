@@ -7,6 +7,7 @@ let ROOT_PORT = 2929
 
 
 let gulp = require('gulp')
+let imgmin = require('gulp-imagemin')
 let cssauto = require('gulp-autoprefixer')
 let cssmin = require('gulp-clean-css')
 let less = require('gulp-less')
@@ -68,8 +69,26 @@ gulp.task('js', () => {
       .pipe(gulpif(cmd.watch, connect.reload()))
 })
 
+gulp.task('img', () => {
+	gulp.src('src/img/**/*.*')
+			.pipe(imgmin({
+				progressive: true
+			}))
+			.pipe(gulp.dest('dist/img'))
+})
+// 压缩图片
+gulp.task('watchimg', () => {
+	gulp.watch('src/img/**/*.*',['img','reloadhtml'])
+})
+// 监听 图片文件夹
+
+gulp.task('cpfont', () => {
+	gulp.src('src/fonts/**/*.*')
+			.pipe(gulp.dest('dist/fonts'))
+})
+
 gulp.task('default',[
-	'server', 'html', 'js',
+	'server', 'html', 'js', 'img', 'cpfont',
 	'watch'
 ])
 

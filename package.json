@@ -25,6 +25,7 @@
     "swiper": "^3.4.2"
   },
   "dependencies": {
+    "gulp-imagemin": "^3.4.0",
     "normalize.css": "^7.0.0"
   }
 }
