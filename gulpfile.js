@@ -1,85 +1,86 @@
 
+let src__DIR__ = 'src/'
+// 源文件目录
+let dist__DIR__ = 'dist/'
+// 生成文件目录
+let ROOT_PORT = 2929
+
+
 let gulp = require('gulp')
-let connect = require('gulp-connect')
-let imgmin = require('gulp-imagemin')
+let cssauto = require('gulp-autoprefixer')
 let cssmin = require('gulp-clean-css')
-let jsmin = require('gulp-uglify')
-let autofixer = require('gulp-autoprefixer')
+let less = require('gulp-less')
+// css处理
+let useref = require('gulp-useref')
+// HTML自动注入
+let plumber = require('gulp-plumber')
+let named = require('vinyl-named')
+let gulpwebpack =require('webpack-stream')
+let webpackconfig = require('./webpack.config.js')
+// js打包
+let args = require('yargs')
+let gulpif = require('gulp-if')
+let gutil = require('gulp-util')
+// 命令行处理
+let connect = require('gulp-connect')
+// 服务器
 
+args.option('watch',{
+  boolean:true,
+  default:false,
+  describe:'watch all files'
+})
+let cmd = args.argv
 
-gulp.task('connect', () => {
+gulp.task('server', (cb)=>{
+	if(!cmd.watch) return cb();
 	connect.server({
-		root: 'dist/',
+		root: dist__DIR__,
+		port: ROOT_PORT,
 		livereload: true
 	})
 })
-// 开启服务器
-gulp.task('reloadhtml', () => {
-	gulp.src('./dist/index.html')
-			.pipe(connect.reload())
+
+gulp.task('html', () => {
+	gulp.src(src__DIR__+'/*.html')
+			.pipe(useref())
+      .pipe(gulpif('*.less', less()))
+      .pipe(gulpif('*.css', cssmin()))
+      .pipe(gulpif('*.css', cssauto()))
+			.pipe(gulp.dest(dist__DIR__))
+			.pipe(gulpif(cmd.watch, connect.reload()))
 })
-// 重载页面
-
-
-
-gulp.task('indexhtml', () => {
-	gulp.src('./src/index.html')
-			.pipe(gulp.dest('dist/'))
+gulp.task('watch', (cb) => {
+	if(!cmd.watch) return cb();
+	gulp.watch(src__DIR__+'/**/*.html', ['html']);
+	gulp.watch(src__DIR__+'/**/*.js', ['js']);
 })
-// 复制 src/index -> dist/html
-
-
-gulp.task('wacthhtml', () => {
-	gulp.watch('./src/index.html', ['indexhtml','reloadhtml'])
-})
-// 监听 index  刷新html
-
-gulp.task('mincss',function(){
-    //	定义css事件
-    gulp.src("src/css/*.*")
-    //	找到要执行的文件
-    .pipe(cssmin())
-    //	压缩css
-    .pipe(gulp.dest("dist/css/"))
-    //	执行    另存为到dist中	
-})
-gulp.task('watchcss',function(){
-    gulp.watch('src/css/**/*.*',['mincss','reloadhtml'])
-    //	监听css文件
-})
-
-
-gulp.task('img', () => {
-	gulp.src('src/img/**/*.*')
-			.pipe(imgmin({
-				progressive: true
-			}))
-			.pipe(gulp.dest('dist/img'))
-})
-// 压缩图片
-gulp.task('watchimg', () => {
-	gulp.watch('src/img/**/*.*',['img','reloadhtml'])
-})
-// 监听 图片文件夹
-
-
-
 
 gulp.task('js', () => {
-	gulp.src('src/js/**/*.js')
-			.pipe(jsmin())
-			.pipe(gulp.dest('dist/js'))
+	gulp.src('src/js/app.js')
+			.pipe(plumber())
+			.pipe(named())
+			.pipe(gulpwebpack(webpackconfig),(err,stats) => {
+        if ( err ) throw new gutil.PluginError("webpack",err);
+        log(`Fininshed '${colors.cyan('js')}'`,stats.toSting({ chunks: false }))
+      })
+      .pipe(gulp.dest(dist__DIR__+'js'))
+      .pipe(gulpif(cmd.watch, connect.reload()))
 })
-// 压缩js
-gulp.task('watchjs', () => {
-	gulp.watch('src/js/**/*.js', ['js','reloadhtml'])
-})
-// 监听 Js
 
-gulp.task('default', [
-	// reload
-	'indexhtml', 'img', 'js',  'connect', 'mincss',
-	// Watch
-	'wacthhtml',  'watchjs' , 'watchcss'
-	]
-)
+gulp.task('default',[
+	'server', 'html', 'js',
+	'watch'
+])
+
+
+
+
+
+
+
+
+
+
+
+
