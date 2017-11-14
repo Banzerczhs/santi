@@ -40,7 +40,7 @@ $(function(){
 			$(".input_xs").val('');
 		}
 	});
-//	search<768     END
+//	search < 768     END
 
 //	search     END
 	
