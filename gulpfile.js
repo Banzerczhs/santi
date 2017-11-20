@@ -11,6 +11,7 @@ let imgmin = require('gulp-imagemin')
 let cssauto = require('gulp-autoprefixer')
 let cssmin = require('gulp-clean-css')
 let less = require('gulp-less')
+let cached = require('gulp-cached');
 // css处理
 let useref = require('gulp-useref')
 // HTML自动注入
@@ -55,6 +56,18 @@ gulp.task('watch', (cb) => {
 	if(!cmd.watch) return cb();
 	gulp.watch(src__DIR__+'/**/*.html', ['html']);
 	gulp.watch(src__DIR__+'/**/*.js', ['js']);
+	gulp.watch(src__DIR__+'/**/*.less', ['css']);
+})
+
+gulp.task('css', () => {
+	gulp.src('src/css/app.less')
+			.pipe(less())
+			.pipe(cssauto({
+        browsers: ['last 2 versions'],
+        cascade: false
+      }))
+      .pipe(gulp.dest(dist__DIR__ + 'css'))
+      .pipe(gulpif(cmd.watch, connect.reload()))
 })
 
 gulp.task('js', () => {
@@ -65,7 +78,7 @@ gulp.task('js', () => {
         if ( err ) throw new gutil.PluginError("webpack",err);
         log(`Fininshed '${colors.cyan('js')}'`,stats.toSting({ chunks: false }))
       })
-      .pipe(gulp.dest(dist__DIR__+'js'))
+      .pipe(gulp.dest(dist__DIR__ + 'js'))
       .pipe(gulpif(cmd.watch, connect.reload()))
 })
 
