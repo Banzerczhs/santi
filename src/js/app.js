@@ -74,23 +74,35 @@ $(function(){
 		  });  
 		
 		//	banner   END
-		
+		let modOff = true;
 		$(".mod").click(function(){
 			$("section").toggleClass("model-6");
-			$(".nav-menu").slideToggle(1000);
+			$(".nav-menu").slideToggle(500);
+			if ( modOff ) {
+				$(".banner").hide();
+				$(".content").hide();
+				$(".footer").hide();
+			}else {
+				$(".banner").show();
+				$(".content").show();
+				$(".footer").show();
+			}
+			modOff = !modOff;
 		});
 //		NAV_xs     END
 
 		$(".nav ul .nav_h").hover(
 			function(){
+				$(".subnav").css("opacity","1");
+				$(".nav").css("padding-bottom","0px");
 				$(".subnav").css("display","block");
-				$(".nav").css("padding-bottom","0px")
-				$(".nav_bar").addClass("nav_bar_h");
+				// $(".nav_bar").addClass("nav_bar_h");
 			},
 			function(){
+				$(".subnav").css("opacity","0");
 				$(".subnav").css("display","none");
 				$(".nav").css("padding-bottom","20px")
-				$(".nav_bar").removeClass("nav_bar_h");
+				// $(".nav_bar").removeClass("nav_bar_h");
 			}
 		);
 //		subnav    END

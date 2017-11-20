@@ -5,10 +5,19 @@
   width: 100%;
   text-align: center;
 }
-.swiper-slide img{
-	max-width: 100%;
-	width: 100%;
-	min-height: 200px;
+.swiper-slide{
+	height: 756px;
+	background-size: cover;
+}
+
+.slide1{
+	background-image: url('../img/banner-1.jpg')
+}
+.slide2{
+	background-image: url('../img/banner-2.jpg')
+}
+.slide3{
+	background-image: url('../img/banner-3.jpg')
 }
 .swiper-pagination-bullet {
   width: 1.2rem !important;
@@ -42,6 +51,7 @@
 
 /*more*/     
 .more a{
+	transition:all ease-out .5s;
 	position: absolute;
 	right: 5px;
 	display: block;

@@ -5,19 +5,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<title>三泰新材</title>
-		<!-- build:css css/app.css -->
-		<!--banner需要-->
-		<link rel="stylesheet" type="text/css" href="../node_modules/swiper/dist/css/swiper.min.css"/>
-		<!--banner需要-->
-		<link rel="stylesheet" type="text/css" href="../node_modules/normalize.css/normalize.css"/>
-		<link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="css/header.css"/>
-		<!--搜索需要-->
-		<link rel="stylesheet" type="text/css" href="css/search-form.css"/>
-		<!--搜索需要-->
-		<link rel="stylesheet" type="text/css" href="css/content.css"/>
-		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
-		<!-- endbuild -->
+		<link rel="stylesheet" href="css/app.css">
 	</head>
 	<body>
 		<!--[if lte IE 8]>
@@ -49,12 +37,12 @@
 			<div class="header">
 				<div class="container">
 					<div class="header_top row">
-						<div class="collection col-lg-3 col-md-3 col-sm-2">
+						<div class="collection col-lg-3 col-md-1 col-sm-1">
 							<a href="#">收藏本站</a>
 						</div>
 						<!--收藏     END-->
 						
-						<div class="col-lg-6 col-md-6 col-sm-6 search">
+						<div class="col-lg-6 col-md-12 col-sm-12 search">
 							<form onsubmit="submitFn(this, event);">
 								<div class="search-wrapper">
 									<div class="input-holder">
@@ -68,7 +56,7 @@
 						</div>
 						<!--search        END-->
 						
-						<div class="iphone col-lg-3 col-md-3 col-sm-4">
+						<div class="iphone col-lg-3 col-md-12 col-sm-12">
 							<img src="img/icon_phone.png"/>
 							<p>热线电话：027-87551866</p>
 						</div>
@@ -222,9 +210,15 @@
 			<div class="banner">
 					<div class="swiper-container ">
 					    <div class="swiper-wrapper">
-					        <div class="swiper-slide"><img src="img/banner-3.jpg" class="img-responsive"/></div>
-					        <div class="swiper-slide"><img src="img/banner-1.jpg" class="img-responsive"/></div>
-					        <div class="swiper-slide"><img src="img/banner-2.jpg" class="img-responsive"/></div>
+					        <div class="swiper-slide slide1">
+					        	<!-- <img src="img/banner-3.jpg" class="img-responsive"/> -->
+					        </div>
+					        <div class="swiper-slide slide2">
+					        	<!-- <img src="img/banner-1.jpg" class="img-responsive"/> -->
+					        </div>
+					        <div class="swiper-slide slide3">
+					        	<!-- <img src="img/banner-2.jpg" class="img-responsive"/> -->
+					        </div>
 					    </div>
 					     <!--如果需要分页器--> 
 					    <div class="swiper-pagination"></div>
@@ -270,7 +264,7 @@
 							<div class="text_pic">
 							  <ul>
 							    <li><a href="#"><img src="img/product-1.JPG" alt="道康宁DC7091" class="img-responsive" >道康宁DC7091</a></li>
-							    <li><a href="#"><img src="img/product-2.JPG" alt="道康宁3140粘接密封胶" class="img-responsive" >道康宁3140粘接密封胶</a></li>
+							    <li><a href="#"><img src="img/product-2.jpg" alt="道康宁3140粘接密封胶" class="img-responsive" >道康宁3140粘接密封胶</a></li>
 							    <li><a href="#"><img src="img/product-3.JPG" alt="道康宁DC184" class="img-responsive" >道康宁DC184</a></li>
 							    <li><a href="#"><img src="img/product-4.JPG" alt="道康宁SE4485" class="img-responsive" >道康宁SE4485</a></li>
 							  </ul>
@@ -307,14 +301,14 @@
 			
 			<div class="footer">
 				<div class="container">
-					<div class="company col-lg-2 col-md-3 col-sm-6 col-xs-6">
+					<div class="company col-lg-2 col-md-3 col-sm-6 col-xs-12">
 						<h3>三泰</h3>
 						<ul>
 							<li><a href="#">企业介绍</a></li>
 							<li><a href="#">合作伙伴</a></li>
 						</ul>
 					</div>
-					<div class="brand col-lg-2 col-md-3 col-sm-6 col-xs-6">
+					<div class="brand col-lg-2 col-md-3 col-sm-6 col-xs-12">
 						<h3>品牌</h3>
 						<ul>
 							<li><a href="#">三泰硅宝</a></li>
@@ -323,7 +317,7 @@
 							<li><a href="#">汉高乐泰</a></li>
 						</ul>
 					</div>
-					<div class="product_link col-lg-2 col-md-3 col-sm-6 col-xs-6">
+					<div class="product_link col-lg-2 col-md-3 col-sm-6 col-xs-12">
 						<h3>产品</h3>
 						<ul>
 							<li><a href="#">导热材料</a></li>
