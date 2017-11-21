@@ -1,0 +1,267 @@
+﻿/*左侧列表*/
+body{
+	background: #F9F9F9;
+}
+.search{
+	position: relative;
+	z-index: 999;
+}
+/*.search form .search-wrapper .input-holder .search-icon{
+	width: 45px;
+	height: 45px;
+	
+}*/
+.left{
+	
+	color:black;
+	font-family: "微软雅黑";
+	width: 25%;
+	margin-top:158px;
+	margin-bottom: 83px;
+	/*float: left;*/
+}
+
+.accordion{
+width: 95%;
+box-shadow: 3px 3px 3px 1px #CCCCCC;
+-webkit-box-shadow: 3px 3px 3px 1px #CCCCCC;
+-moz-box-shadow: 3px 3px 3px 1px #cccccc;
+
+}
+.gly{
+	display: inline-block;
+	width:5px;
+	height:5px;
+	border:1px solid black;
+	margin-right: 1em;
+}
+.left_top{
+	width: 100%;
+	height: 3.3125em;
+	line-height: 3.3125em;
+	text-align: center;
+	background:#17923b;
+	color: white;
+	font-size: 18px;
+	font-family: "微软雅黑";
+	font-weight: bold;
+	text-align: center;
+}
+
+.accordion-heading{
+	border-bottom: 1px solid #C0C0C0;
+	padding: 0.8125em;
+}
+.accordion-heading a{
+	color: black;
+	font-size:16px;
+	margin-left:35%;
+	
+}
+.accordion-body .accordion-inner{	
+	border-bottom: 1px solid #C0C0C0;
+	height:2.3em;
+	line-height: 2.3125em;
+	padding-left:43%;
+	font-family: "微软雅黑";
+	font-size: 12px;
+}
+a.accordion-toggle:link,a.accordion-toggle:hover,a.accordion-toggle:visited,a.accordion-toggle:active{
+	text-decoration: none;
+}
+a.accordion-toggle:hover{
+cursor: pointer;
+}
+div.accordion-inner:hover{
+cursor: pointer;
+}
+a.accordion-toggle:visited,a.accordion-toggle:hover span.gly{
+background: black;
+cursor: pointer;
+}
+div.accordion-inner:visited,div.accordion-inner:hover span.gly{
+background: black;
+cursor: pointer;
+}
+.left_bottom{
+	margin-top: 20px;
+	width: 100%;
+	
+}
+
+.img{
+ 	display: block;
+ 	width:120px ;
+ 	height: 120px;
+ 	position: relative;
+ 	
+ 	margin:40px auto;
+   
+}
+
+.left_bottom .tittle{
+	width: 100%;
+	height: 3.3125em;
+	line-height: 3.3125em;
+	text-align: center;
+	background: #17923b;
+	color: white;
+	font-size: 18px;
+	font-family: "微软雅黑";
+	font-weight: bold;
+	text-align: center;
+	margin-top: 10%;
+}
+.left_bottom .contact{
+	
+	width: 95%;
+	padding: 5%;
+	box-shadow: 3px 3px 3px 1px #CCCCCC;
+-webkit-box-shadow: 3px 3px 3px 1px #CCCCCC;
+-moz-box-shadow: 3px 3px 3px 1px #cccccc;
+}
+.left_bottom .context,.phone{
+	font-family: "微软雅黑";
+	padding-bottom: 5%;
+	font-size: 16px;
+}
+.left_bottom .phone{
+	margin-top: 15%;
+}
+.left_bottom .dreen{
+	font-size:16px;
+	padding-bottom: 5%;
+}
+.left_bottom .dreenn{
+	font-size: 1em;
+	
+}
+.number,.dreen{
+	padding-left: 6%;
+}
+/*right*/
+.right{
+	
+	width: 70%;
+	margin-top:168px;
+	padding-bottom:86px;
+}
+/*面包屑导航*/
+.right .right_top{
+	height:15px;
+	line-height: 15px;
+}
+.right .breadcrumb{
+margin-left: 3.125em;
+
+
+
+}
+
+.right .breadcrumb a:link,.right .breadcrumb a:visited{
+	font-size: 15px;
+	text-decoration: none;
+	color: black;
+	
+}
+/*列表*/
+.content{
+margin-top:1.75em ;
+margin-left:0em;
+
+}
+.content ul{
+list-style: none;}
+.content ul li{
+color: 1em;
+padding: 1em;
+border-bottom: 1px #CCCCCC solid;
+}
+.content ul li{
+position: relative;
+}
+.content ul li a,.content ul li a:active,.content ul li a:link,.content ul li a:hover{
+text-decoration: none;
+color: #555555;
+font-size: 14px;
+
+}
+.content a span.gl{
+margin-left: 0px ;
+margin-right:1em;
+}
+.content a span.gy{
+position: absolute;
+right: 2em;
+}
+/*分页*/
+nav{
+width: 100%;
+margin-left: 3.125em;
+}
+nav ul.pagination li a{
+color: black;
+margin-right: 1em;
+margin-left: 1em;
+}
+
+nav ul.pagination li a:hover,nav ul.pagination li a:active{
+background: orange;
+color: white;
+}
+
+
+
+
+@media (max-width: 768px) {
+	div.left{
+	display: none;}
+	div.right{
+		margin-top: 0px;	
+	width: 100%;}
+	div.content{
+	margin-left:-3em;
+	}
+    div.right_top{
+	margin-left:-3em;
+	}
+	ul.breadcrumb a{
+	font-size: 12px;
+	
+	}
+	.content ul li{
+	height:4.7em;
+	}
+	span.gy{
+	position: relative;
+	
+	margin-left:50px;
+	margin-top:1.6em;
+	}
+	nav{
+	margin-left: 0px;
+	text-align: center;
+	}
+	.pagination li a{
+	margin-left:0px;
+	margin-right:0px;
+	
+	}
+	.pagination li a span{
+	font-size: 0.8em;
+	}
+	
+}
+
+@media (min-width: 768px) and(max-width: 992px) {
+	a.accordion-toggle{
+	font-size:0.9em;
+	}
+	nav ul.pagination li a{
+	margin-left:0px;
+	margin-right:0px;
+	font-size:0.9em;
+	}
+
+}
+
