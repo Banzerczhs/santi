@@ -92,6 +92,7 @@ gulp.task('clear', function () {
 gulp.task('html', () => {
 	gulp.src(src.html)
 			.pipe(gulp.dest(dist.root))
+			.pipe(gulpif(cmd.watch, connect.reload()))
 })
 
 
@@ -106,6 +107,7 @@ gulp.task('copyStatic', () => {
 	gulp.src(src.img)
 			.pipe(imagemin())
 			.pipe(gulp.dest(dist.img))
+			.pipe(gulpif(cmd.watch, connect.reload()))
 			console.log('copy static->img END!')
 })
 
@@ -126,6 +128,7 @@ gulp.task('css', () => {
        }))
 			.pipe(cssmin())
 			.pipe(gulp.dest(dist.css))
+			.pipe(gulpif(cmd.watch, connect.reload()))
 })
 
 
