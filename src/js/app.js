@@ -1,5 +1,3 @@
 
-import $ from 'jQuery';
-window.jQuery = $;
+import $ from 'jquery';
 import 'bootstrap';
-
