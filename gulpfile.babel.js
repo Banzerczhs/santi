@@ -26,7 +26,7 @@ const src = {
 	css: 'src/css/'+INDEX_CSS,
 	js: 'src/js/'+INDEX_JS,
 	img: 'src/img/**/*.*',
-	font: 'src/font/**/*.*'
+	font: 'src/fonts/**/*.*'
 }
 
 /**
@@ -37,7 +37,7 @@ const dist = {
 	css: 'dist/css',
 	js: 'dist/js',
 	img: 'dist/img',
-	font: 'dist/font'
+	font: 'dist/fonts'
 }
 
 /**
