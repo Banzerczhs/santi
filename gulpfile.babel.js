@@ -124,7 +124,6 @@ import cssmin from 'gulp-clean-css'
 gulp.task('css', () => {
 	gulp.src(src.css)
 			.pipe(plumber())
-			.pipe(cached('cssting'))
 			.pipe(less())
 			.pipe(autofixer({
             browsers: ['last 2 versions'],
@@ -162,8 +161,8 @@ gulp.task('js', () => {
 gulp.task('watch', (cb) => {
 	if(!cmd.watch) return cb();
 	gulp.watch(src.html, ['html']);
-	gulp.watch(src.css, ['css']);
-	gulp.watch(src.js, ['js']);
+	gulp.watch('src/css/**/*.*', ['css']);
+	gulp.watch('src/js/**/*.*', ['js']);
 })
 
 
