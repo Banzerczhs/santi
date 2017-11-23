@@ -46,6 +46,9 @@ const dist = {
 import gulp from 'gulp'
 import rename from 'gulp-rename'
 import plumber from 'gulp-plumber'
+// 遇到错误不终止
+import cached from 'gulp-cached'
+// 缓存对比，提高速度
 
 /**
  * 命令行选项
@@ -121,6 +124,7 @@ import cssmin from 'gulp-clean-css'
 gulp.task('css', () => {
 	gulp.src(src.css)
 			.pipe(plumber())
+			.pipe(cached('cssting'))
 			.pipe(less())
 			.pipe(autofixer({
             browsers: ['last 2 versions'],
@@ -141,6 +145,7 @@ import webpackconfig from './webpack.config.js'
 gulp.task('js', () => {
 	gulp.src(src.js)
 			.pipe(plumber())
+			.pipe(cached('jsting'))
 			.pipe(gulpwebpack(webpackconfig),(err, stats) => {
         if ( err ) throw new gutil.PluginError("webpack",err);
         log(`Fininshed '${colors.cyan('js')}'`,stats.toSting({ chunks: false }))
