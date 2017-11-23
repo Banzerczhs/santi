@@ -1,0 +1,169 @@
+
+//  Header.Less
+// 
+
+@hd-height: 46px;
+@icon-size: 22px;
+@icon-box-h: 40px;
+
+.header{
+	.hd-top{
+		height: @hd-height;
+		line-height: @hd-height;
+		overflow: hidden;
+	}
+	.icon-box{
+		.clear();
+		display: inline-block;
+		width: @icon-box-h;height: @icon-box-h;
+		margin: ( @hd-height - @icon-box-h ) / 2 0;
+		border-radius: @icon-box-h / 2;
+		background-color: @color-g1;
+		text-align: center;
+		padding: 0;
+		.transition();
+		&:hover{
+			.icon{
+				transform: rotate(360deg);
+			}
+		}
+		.icon{
+			.transition(.9s);
+			font-size: @icon-size;
+			line-height: @icon-box-h;
+			color: @cf;
+		}
+	}
+}
+
+.star {
+	a{
+		color: @c6;
+		&:hover{
+			color: @c0;
+			text-decoration: underline;
+		}
+	}
+}
+
+//  End 收藏
+.search {
+	.icon-box {
+		&:hover {
+			width: 100%;
+			.icon {
+				transform: rotate(360deg);
+			}
+		}
+		input {
+			float: left;
+			width: 80%; height: @icon-box-h;
+			border: none; outline: none;
+			text-indent: 14px;
+			border-top-left-radius: @icon-box-h / 2; 
+			border-bottom-left-radius: @icon-box-h / 2; 
+			&:focus{
+				text-shadow: 1px 1px 1px @cc;
+			}
+		}
+	}
+	.search-btn {
+		text-align: right;
+	}
+}
+
+// End 搜索
+.tel{
+	&:hover{
+		p{
+			color: green;
+		}
+	}
+	.icon-box{
+		float: left;
+	}
+	p{
+		float: left;
+		padding-left: 10px;
+		color: #000;
+	}
+}
+
+
+
+// End 联系我们
+@logo-h: 64px;
+@logo-m: 6px;
+@nav-h: 46px;
+@nav-font: 16px;
+@subnav-font: 15px;
+@subnav-height: 36px;
+.hd-content{
+	backgrou nd-color: @color-b1;
+	.container>a{
+		display: block;
+	}
+	.logo{
+		text-indent: -2333px;
+		margin: @logo-m 0;
+		background: url(../img/logo.png) no-repeat left;
+    background-size: contain;
+    height: @logo-h;
+	}
+	.naver{
+		&>li{
+			float: left;
+			width: 100% /7;
+			line-height: @nav-h;
+			margin: ((@logo-h + @logo-m *2) - @nav-h) / 2  0;
+			text-align: center;
+			&>a{
+				font-size: @nav-font;
+			}
+		}
+		ul{
+			display: none;
+			line-height: 0;
+			li{
+				display: inline-block;
+				height: @subnav-height; line-height: @subnav-height;
+				width: 100%;
+				font-size: @subnav-font;
+			}
+		}
+	}
+}
+
+.naver{
+	&>li+li>a{
+		border-left: 1px solid @cf;
+	}
+	li a{
+		&:hover{&:after{
+			transform: translateX(0);
+			opacity: 1;
+		}}
+		&:after{
+			content: '';
+			display: block;
+			width: 70%;height: 2px;
+			background-color: @color-g1;
+			margin: auto;
+			.transition(.3s);
+			transform: translateX(-100px);
+			opacity: 0;
+		}
+	}
+	li a{
+		display: block;
+	}
+	a {
+		color: @c9;
+		&:hover{
+			color: @cf;
+			text-decoration: none;
+		}
+	}
+}
+
+

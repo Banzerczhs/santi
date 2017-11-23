@@ -1,0 +1,12 @@
+
+.clear() {
+	&:after{
+			content: '';
+			display: table;
+			clear: both;
+	}
+}
+
+.transition( @ms: .5s ){
+	transition:all ease-out @ms;
+}
