@@ -2,22 +2,24 @@
 
 ## 目录
 
+```
 |-.babelrc // ES666!!!
 |-.gitignore // git忽略文件及目录
 |-gulpfile.babel.js // gulp_config
 |-package.json // npm
 |-README.md // You're looking at me
-|-webpack.config.js // webpack_config
+|-webpack.config.js // webpack_config<br/>
 |-dist // 生成目录
-|  |-css
-|  |-font
-|  |-js
+|	|-css
+|	|-font
+|	|-js
 |-src //源文件目录
-    |-css
-    |-font
-    |-img
-    |-js
-        |-lib
+	|-css
+	|-font
+	|-img
+	|-js
+		|-lib
+```
 
 ### 使用
 
