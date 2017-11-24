@@ -1,6 +1,5 @@
-
 import $ from 'jquery';
-import 'bootstrap';
+import Swiper from 'swiper';
 
 $(function () {
 
@@ -31,7 +30,34 @@ $(function () {
 	});
 	// // 导航
 
-	let adHeight = $('.ad').height();
-	$('.header').height(adHeight);
+	$('.nav-mune').click(function() {
+		$('.naver').slideToggle()
+		$('.content').toggle();
+		$('.footer').toggle();
+	});
+	// End xs Nav
+	
+	$('.search .icon').click(function() {
+		$('.tel').toggleClass('search-active-tel');
+		$('.search-btn .icon-box').toggleClass('search-active-box');
+	});
+
+	$('.tel').click(function() {
+		$('.tel').removeClass('search-active-tel');
+		$('.search-btn .icon-box').removeClass('search-active-box');
+		
+	});
+	// search xs
+
+	// let adHeight = $('.hd-content').height() * -1 + 'px';
+	// $('.ad').css('top',adHeight);
+
+	const ad1 = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      loop: true
+    });
+	// Banner
 
 })

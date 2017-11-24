@@ -7,6 +7,7 @@
 @icon-box-h: 40px;
 
 .header{
+	background-color: @cf;
 	.hd-top{
 		height: @hd-height;
 		line-height: @hd-height;
@@ -71,6 +72,25 @@
 		text-align: right;
 	}
 }
+@media screen and ( max-width:992px ) {
+	.search .icon-box{
+		width: 100%;
+	}
+}
+@media screen and ( max-width:768px ) {
+	.container.hd-top{
+		background-color: @color-b1;
+	}
+	.header .icon-box{
+		background-color: transparent;
+	}
+	.search .icon-box{
+		width: 40px;
+	}
+	.search .search-btn{
+		text-align: left;
+	}
+}
 
 // End 搜索
 .tel{
@@ -86,6 +106,11 @@
 		float: left;
 		padding-left: 10px;
 		color: #000;
+	}
+}
+@media screen and ( max-width:768px ) {
+	.tel p{
+		color: @cf;
 	}
 }
 
@@ -133,6 +158,51 @@
 		}
 	}
 }
+@logo-sm-size: 56px;
+@logo-sm-margin: 2px;
+@nav-mune-height: 2px;
+@nav-mune-color: @cf;
+@media screen and ( max-width:768px ){
+	.hd-content{
+		.logo{
+			height: @logo-sm-size;
+			margin: @logo-sm-margin 0;
+		}
+		.nav-mune{
+			height: @logo-sm-size + @logo-sm-margin * 2;
+			position: relative;
+			span{
+				position: relative;
+				top: 50%; right: 15px;
+				display: block;
+				height: @nav-mune-height;
+				background-color: #fff;
+				&:after,&:before{
+					content: ''; display: block;
+					height: @nav-mune-height;
+					background-color: @nav-mune-color;
+					position: absolute;
+					right: 0;
+				}
+				&:after{
+					.transition();
+					top: 10px;
+					width: 65%;
+				}
+				&:before{
+					bottom: 10px;
+					width: 25%;
+				}
+				&:hover{
+					&:after,&:before{
+						width: 100%;
+					}
+				}
+			}
+		}
+
+	}
+}
 
 .naver{
 	&>li+li>a{
@@ -166,4 +236,70 @@
 	}
 }
 
+@media screen and ( max-width:768px ){
+
+	.hd-content{
+		height: 60px;
+		background-color: @color-b1;
+		.naver{
+			display: none;
+      top: 20px;
+	    background-color: @color-b1;
+			> li:first-child{
+		    margin-top: 40px;
+			}
+			> li{
+				float: none;
+				width: 100%;
+				line-height: 28px;
+		    margin: 8px 0;
+				a{
+					border: none;
+					&:hover{
+						&:after{
+							height: 0;
+						}
+					}
+				}
+				ul{
+					display: block;
+					.clear();
+					li {
+						float: left;
+						width: 50%;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and ( max-width:768px ){
+	.hd-content{
+    transform: translateY(-46px);
+    height: auto;
+	}
+	.hd-top{
+    transform: translateY(60px);
+	}
+	.tel .icon-box{
+		float: right;
+	}
+	.tel p{
+		font-size: 12px;
+		padding-left: 0;
+		float: right;
+		a{
+			color: @cf;
+		}
+	}
+	.search-active-tel{
+		width: 40px !important;
+    float: right !important;
+    margin-right: 15px !important;
+	}
+	.search-active-box{
+    width: 230px !important;
+	}
+}
 
