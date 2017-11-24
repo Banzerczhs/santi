@@ -1,33 +1,7 @@
 @import "bootstrap.less";
-
-/*颜色*/
-@MainHoverColor: #17923B;
-@WhiteColor: #FFF;
-@BlockColor: #000;
-@divisionLine: rgba(0, 0, 0, .1);
-
-/*宽高*/
-@TitleHeight: 60px;
-@MenuPaddingLeft: 50px;
-
-/*字体大小*/
-@TitleFontSize: 18px;
-@SecondLevelFontSize: 16px;
-@ThreeLevelFontSize: 14px;
-
-/*常见样式*/
-.border-1px(@color) {
-  position: relative;
-  &:after {
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    content: '';
-    width: 100%;
-    border-top: 1px solid @color;
-  }
-}
+@import "mixin.less";
+@import "priuctList.less";
+@import "priuctDetail.less";
 
 body {
   background-color: #f9f9f9;
@@ -38,183 +12,98 @@ body {
 
 .content {
   margin-top: 10px;
-  .mian-title {
-    padding: 0;
-    margin: 0;
-    height: @TitleHeight;
-    line-height: @TitleHeight;
-    text-align: center;
-    color: @WhiteColor;
-    background-color: @MainHoverColor;
-    font-size: @TitleFontSize;
-  }
-  .list {
-    list-style-type: none;
-    padding: 10px 0 32px 0;
-    margin: 0 auto;
-    width: 95%;
-    box-shadow: 3px 3px 3px 1px #ccc;
-    font-size: @SecondLevelFontSize;
-    li {
-      .border-1px(@divisionLine);
-    }
-    .accordion-heading a {
-      position: relative;
-      padding-left: @MenuPaddingLeft;
-      display: inline-block;
-      height: 36px;
-      line-height: 36px;
-      color: @BlockColor;
-      &:after {
-        position: absolute;
-        left: @MenuPaddingLeft - 10;
-        top: 50% - 6;
-        width: 6px;
-        height: 6px;
-        content: '';
-        border: 1px solid #5d657a;
-      }
-      &:hover {
-        color: @MainHoverColor;
-        &:after {
-          background-color: #5d657a;
-        }
-      }
-      &.active {
-        color: @MainHoverColor;
-        &:after {
-          background-color: #5d657a;
-        }
-      }
-    }
-    .accordion-body {
+
+  .news-wrapper {
+    .news-list {
       list-style-type: none;
-      font-size: @ThreeLevelFontSize;
-      .accordion-inner a {
-        padding-left: @MenuPaddingLeft/2;
-        height: 30px;
-        line-height: 30px;
-        &:after {
-          position: absolute;
-          left: @MenuPaddingLeft/2 - 10;
-          top: 50% - 6;
-          width: 6px;
-          height: 6px;
-          content: '';
-          border: 1px solid #5d657a;
-        }
+      .item {
+        display: flex;
+        width: 100%;
+        height: 48px;
+        line-height: 48px;
+        vertical-align: middle;
+        color: @MinFontSize;
+        font-size: @MinFontSize;
+        .clear;
+      }
+      .item-title {
+        flex: 1;
+        color: #676767;
+        font-size: @ThreeLevelFontSize;
+        .no-wrap;
         &:hover {
           color: @MainHoverColor;
-          &:after {
-            background-color: #5d657a;
-          }
-        }
-        &.active {
-          color: @MainHoverColor;
-          &:after {
-            background-color: #5d657a;
-          }
         }
       }
-    }
-  }
-
-  .left_bottom {
-    width: 100%;
-    .icon {
-      margin: 35px auto 14px;
-      width: 120px;
-      height: 120px;
-      overflow: hidden;
-      img {
-        width: 100%;
-      }
-    }
-    .title {
-      padding: 0;
-      margin: 0;
-      height: @TitleHeight;
-      line-height: @TitleHeight;
-      text-align: center;
-      color: @WhiteColor;
-      background-color: @MainHoverColor;
-      font-size: @TitleFontSize;
-    }
-    .information {
-      padding: 16px;
-      width: 95%;
-      box-shadow: 3px 3px 3px 1px #ccc;
-      .address, .number {
-        text-indent: 2em;
-      }
-    }
-  }
-
-  .breadcrumb {
-    a:hover {
-      color: @MainHoverColor;
-    }
-    li + li:before {
-      content: '>'; //面包屑导航的中间间隔样式
-    }
-  }
-  .product {
-    width: 100%;
-    .product-wrapper {
-      width: 100%;
-      tbody {
-        tr {
-          height: 130px;
-        }
-      }
-      .item-desc {
-        padding: 0 20px;
-        .more {
-          display: block;
-          text-align: right;
-          color: #ff0103;
-          &:hover {
-            color: @MainHoverColor;
-          }
-        }
-      }
-    }
-  }
-
-  .navigation {
-    margin-top: 30px;
-    width: 100%;
-    text-align: center;
-    .pagination {
-      margin: 0 auto;
-      .page-item {
-        a {
-          color: #666;
-        }
-        &.active a {
-          border: 1px solid #FD8402;
-          background-color: #FD8402;
-        }
-        &:hover a {
-          color: #FD8402;
-        }
-      }
-    }
-  }
-
-  .product-details {
-    margin-bottom: 80px;
-    .data {
-      width: 100%;
-      border: 1px solid #000;
-      tr {
-        text-align: center;
-        td {
-          padding: 10px 0;
-        }
+      time {
+        flex: 0 0 100px;
+        text-align: right;
+        color: #b3afbe;
       }
     }
   }
 }
 
+.min-sub-nav {
+  width: 100%;
+  min-height: 1px;
+  .clear;
+  .main-title {
+    margin: 0;
+    padding: @TitleHeight/2 6px;
+    font-size: @TitleFontSize;
+    text-align: center;
+    word-wrap: break-word;
+    color: #fff;
+    background-color: @MainHoverColor;
+  }
+  .subnav {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    .subnav-item {
+      margin: 6px 0;
+      display: inline-block;
+      /*.second-nav {
+        position: absolute;
+        left: -100px;
+        top: 0;
+        z-index: 100;
+      }*/
+      &.active {
+        .btn {
+          color: #fff;
+          background-color: #337ab7;
+        }
+      }
+    }
+  }
 
+}
+
+/*
+* 屏幕宽度>992 子菜单显示在上面
+*/
+@media (max-width: 992px) {
+  .max-sub-nav {
+    display: none;
+  }
+
+  .min-sub-nav {
+    display: block;
+  }
+}
+
+/*
+* 屏幕宽度<992 子菜单显示在左边
+*/
+@media (min-width: 992px) {
+  .max-sub-nav {
+    display: block;
+  }
+
+  .min-sub-nav {
+    display: none;
+  }
+}
