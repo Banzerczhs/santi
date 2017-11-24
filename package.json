@@ -24,7 +24,8 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "swiper": "^3.4.2"
   },
   "name": "santi",
   "version": "1.0.0",
