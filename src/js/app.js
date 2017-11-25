@@ -24,8 +24,10 @@ $(function () {
 	// 收藏
 
 	$('.naver').hover(function() {
+		$('.hd-content').addClass('active');
 		$(this).find('ul').show();
 	}, function() {
+		$('.hd-content').removeClass('active');
 		$(this).find('ul').hide();
 	});
 	// // 导航
@@ -55,9 +57,23 @@ $(function () {
 	const ad1 = new Swiper('.swiper-container', {
       pagination: {
         el: '.swiper-pagination',
+        dynamicBullets: true
       },
-      loop: true
-    });
+      loop: true,
+	   autoplay: {
+	       delay: 3500,
+	       disableOnInteraction:false
+     },
+  });
 	// Banner
+	const productAd = new Swiper('.swiper-container-product', {
+		slidesPerView: 2,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+        delay: 1500,
+        disableOnInteraction:true
+    },
+  });
 
 })

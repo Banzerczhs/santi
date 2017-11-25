@@ -117,14 +117,20 @@
 
 
 // End 联系我们
-@logo-h: 64px;
-@logo-m: 6px;
-@nav-h: 46px;
+@logo-h: 60px;
+@logo-m: 2px;
+@nav-h: 64px;
+@nav-a-h: 46px;
 @nav-font: 16px;
 @subnav-font: 15px;
 @subnav-height: 36px;
+.hd-content.active{
+  background-color: rgba(53, 109, 225, 0.7);
+  background-color: rgba(17, 124, 47, 0.8);
+}
 .hd-content{
 	backgrou nd-color: @color-b1;
+	.transition(.8s);
 	.container>a{
 		display: block;
 	}
@@ -142,6 +148,12 @@
 			line-height: @nav-h;
 			margin: ((@logo-h + @logo-m *2) - @nav-h) / 2  0;
 			text-align: center;
+			a{
+				height: @nav-a-h;
+				line-height: @nav-a-h;
+				margin-top: (@nav-h - @nav-a-h) / 2;
+				text-decoration: none;
+			}
 			&>a{
 				font-size: @nav-font;
 			}
@@ -149,11 +161,13 @@
 		ul{
 			display: none;
 			line-height: 0;
+			padding-bottom: 20px;
 			li{
 				display: inline-block;
 				height: @subnav-height; line-height: @subnav-height;
 				width: 100%;
 				font-size: @subnav-font;
+				margin-top: 10px;
 			}
 		}
 	}
@@ -289,6 +303,7 @@
 		font-size: 12px;
 		padding-left: 0;
 		float: right;
+    margin-top: 4px;
 		a{
 			color: @cf;
 		}
