@@ -17,6 +17,19 @@ $(function () {
     })
 
 
+var a=true;
+$(".pic").click(function(){
+    if(a==true){
+        $(".service_an").animate({left:"0px"},500);
+        a=false;
+    }else{
+        $(".service_an").animate({left:"-173px"},500);
+        a=true; 
+    }
+});
+//      客服               END        
+
+
     /*小屏幕的菜单*/
     let subNavItem = $('.min-sub-nav .subnav-item');
     subNavItem.on('click', function (e) {
@@ -46,13 +59,23 @@ $(function () {
     });
     // 收藏
 
-    $('.naver').hover(function() {
-        $('.hd-content').addClass('active');
+    // $('.naver').hover(function() {
+    //     $('.hd-content').addClass('active');
+    //     $(this).find('ul').show();
+    // }, function() {
+    //     $('.hd-content').removeClass('active');
+    //     $(this).find('ul').hide();
+    // });
+
+    $('.naver li').hover(function() {
+        $('.naver ul').addClass('active');
         $(this).find('ul').show();
     }, function() {
-        $('.hd-content').removeClass('active');
+        $('.naver ul').removeClass('active');
         $(this).find('ul').hide();
     });
+
+
     // // 导航
 
     $('.nav-mune').click(function() {
@@ -80,10 +103,10 @@ $(function () {
         dynamicBullets: true
       },
       loop: true,
-       autoplay: {
-           delay: 3500,
-           disableOnInteraction:false
-     },
+     //   autoplay: {
+     //       delay: 3500,
+     //       disableOnInteraction:false
+     // },
   });
     // Banner
     const productAd = new Swiper('.swiper-container-product', {
