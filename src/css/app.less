@@ -3,7 +3,6 @@
 @import "priuctList.less";
 @import "priuctDetail.less";
 @import "newList.less";
-
 @import "swiper.less";
 @import "var.less";
 @import "fun.less";
@@ -79,8 +78,9 @@ body {
       }
     }
     .accordion-body {
+      margin-left: 40px;
       list-style-type: none;
-      font-size: @ThreeLevelFontSize;
+      font-size: @MinFontSize;
       .accordion-inner a {
         padding-left: @MenuPaddingLeft/2;
         height: 30px;
@@ -168,6 +168,10 @@ body {
     li {
       font-size: @ThreeLevelFontSize;
     }
+  }
+
+  .product .product-wrapper tbody tr {
+    border-bottom: 1px solid @divisionLine;
   }
 }
 
