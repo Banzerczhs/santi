@@ -38,7 +38,7 @@ body {
     width: 95%;
     box-shadow: 3px 3px 3px 1px #ccc;
     font-size: @SecondLevelFontSize;
-    li {
+    >li {
       padding-left: 20%;
       line-height: @MenuPaddingLeft;
       border-bottom: 1px solid @divisionLine;
@@ -55,6 +55,15 @@ body {
           border: 1px solid #666;
           content: '';
         }
+        &:hover{
+          &:after{
+            background-color: #666;
+          }
+        }
+        &.inactives{
+          &:after {
+            background-color: #666;
+          }
       }
     }
 
@@ -62,6 +71,7 @@ body {
       display: none;
       .last-no-border;
       > li {
+        padding-left: 10px;
         line-height: @TitleHeight/2;
         > a {
           font-size: 14px;
@@ -72,6 +82,7 @@ body {
       display: none;
       .last-no-border;
       > li {
+        padding-left: 10px;
         line-height: @MenuPaddingLeft/2;
         > a {
           font-size: 13px;
@@ -219,4 +230,5 @@ body {
   .min-sub-nav {
     display: none;
   }
+}
 }
