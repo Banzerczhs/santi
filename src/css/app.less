@@ -39,15 +39,51 @@ body {
     font-size: @TitleFontSize;
   }
 
-  .list {
+  .list-nav {
     list-style-type: none;
-    padding: 10px 0 32px 0;
     margin: 0 auto;
     width: 95%;
     box-shadow: 3px 3px 3px 1px #ccc;
     font-size: @SecondLevelFontSize;
     li {
-      .border-1px(@divisionLine);
+      padding-left: 20%;
+      line-height: @MenuPaddingLeft;
+      border-bottom: 1px solid @divisionLine;
+      .last-no-border;
+      a {
+        position: relative;
+        font-size: 15px;
+        &:after {
+          position: absolute;
+          left: -14px;
+          top: 40%;
+          width: 6px;
+          height: 6px;
+          border: 1px solid #666;
+          content: '';
+        }
+      }
+    }
+
+    .second-nav {
+      display: none;
+      .last-no-border;
+      > li {
+        line-height: @TitleHeight/2;
+        > a {
+          font-size: 14px;
+        }
+      }
+    }
+    .third-nav {
+      display: none;
+      .last-no-border;
+      > li {
+        line-height: @MenuPaddingLeft/2;
+        > a {
+          font-size: 13px;
+        }
+      }
     }
     .accordion-heading a {
       position: relative;
@@ -136,12 +172,6 @@ body {
     .subnav-item {
       margin: 6px 0;
       display: inline-block;
-      /*.second-nav {
-        position: absolute;
-        left: -100px;
-        top: 0;
-        z-index: 100;
-      }*/
       &.active {
         .btn {
           color: #fff;
@@ -153,7 +183,7 @@ body {
 }
 
 /*
-* 屏幕宽度>992 子菜单显示在上面
+* 屏幕宽度<992 子菜单显示在上面
 */
 @media (max-width: 992px) {
   .max-sub-nav {
@@ -171,13 +201,22 @@ body {
     }
   }
 
+  .product .product-wrapper thead tr {
+    .mobile-none {
+      display: none;
+    }
+  }
+
   .product .product-wrapper tbody tr {
     border-bottom: 1px solid @divisionLine;
+    .mobile-none {
+      display: none;
+    }
   }
 }
 
 /*
-* 屏幕宽度<992 子菜单显示在左边
+* 屏幕宽度>992 子菜单显示在左边
 */
 @media (min-width: 992px) {
   .max-sub-nav {

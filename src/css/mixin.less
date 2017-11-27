@@ -4,7 +4,7 @@
 @MainHoverColor: #17923B;
 @WhiteColor: #FFF;
 @BlockColor: #000;
-@divisionLine: rgba(0, 0, 0, .6);
+@divisionLine: rgba(0, 0, 0, .3);
 
 /*宽高*/
 @TitleHeight: 60px;
@@ -28,6 +28,13 @@
     content: '';
     width: 100%;
     border-top: 1px solid @color;
+  }
+}
+
+/*最后一个不显示边框*/
+.last-no-border {
+  &:last-child {
+    border: none;
   }
 }
 
