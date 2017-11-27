@@ -12,6 +12,9 @@
 	.about{}
 	.product{}
 	.news{}
+	.about-img{
+		width: 200px;
+	}
 	.content-top{
 		padding:0 10px;
 		position: relative;
@@ -25,6 +28,12 @@
 	}
 	.content-content{
 		margin-top: 10px;
+		strong{
+			font-size: 18px;
+		}
+		p{
+			line-height: 1.6;
+		}
 	}
 	h3{
 		font-size: 18px;
@@ -63,13 +72,13 @@
 		height: 200px;
 		overflow: hidden;
 		position: relative;
-		&:after{
-			content: ' ......';
-			background-color: @c9;
-			position: absolute;
-			right: 0; bottom: 0;
-			width: 84px;
-		}
+		// &:after{
+		// 	content: ' ......';
+		// 	background-color: @c9;
+		// 	position: absolute;
+		// 	right: 0; bottom: 0;
+		// 	width: 84px;
+		// }
 		img{
 			display: inline-block;
 			float: right;
@@ -81,6 +90,7 @@
 		}
 	}
 }
+
 
 @media screen and ( min-width: 768px )  and ( max-width: 992px ){
 	.about{
@@ -101,9 +111,12 @@
 	.about .content-content:after{
     width: 74px;
 	}
+	.content .content-content p{
+    line-height: 1.35;
+	}
 }
 
-.product {
+.ct-product {
 	.ad2{
 		position: relative;
 		overflow: hidden;
@@ -121,6 +134,7 @@
 			height: 150px;
 			display: block;
 			border-radius: 1px;
+			margin: auto;
 		}
 		a{
 			text-decoration: none;
