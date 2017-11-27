@@ -1,4 +1,3 @@
-
 var path = require('path');
 var webpack = require('webpack');
 
@@ -8,6 +7,11 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false
+          }
         })
     ],
     module: {
@@ -17,4 +21,3 @@ module.exports = {
         }]
     }
 }
-

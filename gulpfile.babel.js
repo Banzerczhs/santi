@@ -26,7 +26,7 @@ const src = {
 	css: 'src/css/'+INDEX_CSS,
 	js: 'src/js/'+INDEX_JS,
 	img: 'src/img/**/*.*',
-	font: 'src/font/**/*.*'
+	font: 'src/fonts/**/*.*'
 }
 
 /**
@@ -37,7 +37,7 @@ const dist = {
 	css: 'dist/css',
 	js: 'dist/js',
 	img: 'dist/img',
-	font: 'dist/font'
+	font: 'dist/fonts'
 }
 
 /**
@@ -46,6 +46,9 @@ const dist = {
 import gulp from 'gulp'
 import rename from 'gulp-rename'
 import plumber from 'gulp-plumber'
+// 遇到错误不终止
+import cached from 'gulp-cached'
+// 缓存对比，提高速度
 
 /**
  * 命令行选项
@@ -92,6 +95,7 @@ gulp.task('clear', function () {
 gulp.task('html', () => {
 	gulp.src(src.html)
 			.pipe(gulp.dest(dist.root))
+			.pipe(gulpif(cmd.watch, connect.reload()))
 })
 
 
@@ -106,6 +110,7 @@ gulp.task('copyStatic', () => {
 	gulp.src(src.img)
 			.pipe(imagemin())
 			.pipe(gulp.dest(dist.img))
+			.pipe(gulpif(cmd.watch, connect.reload()))
 			console.log('copy static->img END!')
 })
 
@@ -126,6 +131,7 @@ gulp.task('css', () => {
        }))
 			.pipe(cssmin())
 			.pipe(gulp.dest(dist.css))
+			.pipe(gulpif(cmd.watch, connect.reload()))
 })
 
 
@@ -138,6 +144,7 @@ import webpackconfig from './webpack.config.js'
 gulp.task('js', () => {
 	gulp.src(src.js)
 			.pipe(plumber())
+			.pipe(cached('jsting'))
 			.pipe(gulpwebpack(webpackconfig),(err, stats) => {
         if ( err ) throw new gutil.PluginError("webpack",err);
         log(`Fininshed '${colors.cyan('js')}'`,stats.toSting({ chunks: false }))
@@ -154,8 +161,8 @@ gulp.task('js', () => {
 gulp.task('watch', (cb) => {
 	if(!cmd.watch) return cb();
 	gulp.watch(src.html, ['html']);
-	gulp.watch(src.css, ['css']);
-	gulp.watch(src.js, ['js']);
+	gulp.watch('src/css/**/*.*', ['css']);
+	gulp.watch('src/js/**/*.*', ['js']);
 })
 
 
