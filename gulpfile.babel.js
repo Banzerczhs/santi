@@ -108,7 +108,6 @@ gulp.task('copyStatic', () => {
 			.pipe(gulp.dest(dist.font))
 			console.log('copy static->font END!')
 	gulp.src(src.img)
-			.pipe(imagemin())
 			.pipe(gulp.dest(dist.img))
 			.pipe(gulpif(cmd.watch, connect.reload()))
 			console.log('copy static->img END!')
