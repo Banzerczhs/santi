@@ -191,6 +191,7 @@
 		.logo{
 			height: @logo-sm-size;
 			margin: @logo-sm-margin 0;
+			margin-left: 15px; margin-right: -15px;
 		}
 	
 		.naver{
@@ -298,9 +299,15 @@
 				ul{
 					display: block;
 					.clear();
+					font-size: 0;
+					width: 60%;
+					margin: auto;
+			    transform: translateX(10%);
 					li {
-						float: left;
+						display: none;
+						display: inline-block;
 						width: 50%;
+						text-align: left;
 					}
 				}
 			}
