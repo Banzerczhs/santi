@@ -219,11 +219,11 @@
 				&:after{
 					.transition();
 					top: 10px;
-					width: 65%;
+					width: 100%;
 				}
 				&:before{
 					bottom: 10px;
-					width: 25%;
+					width: 100%;
 				}
 				&:hover{
 					&:after,&:before{
@@ -283,11 +283,21 @@
 			> li:first-child{
 		    margin-top: 40px;
 			}
+			> li:first-child{
+		    margin-top: 60px;
+			}
 			> li{
 				float: none;
 				width: 100%;
 				line-height: 28px;
-		    margin: 8px 0;
+		    margin: 10px 0;
+		    text-align: left;
+		    padding-left: 15px;
+		    border-bottom: 1px solid @color-g1;
+		    &>a{
+		    	letter-spacing: 4px;
+		    	font-weight: bold;
+		    }
 				a{
 					border: none;
 					&:hover{
@@ -300,14 +310,12 @@
 					display: block;
 					.clear();
 					font-size: 0;
-					width: 60%;
-					margin: auto;
-			    transform: translateX(10%);
 					li {
 						display: none;
 						display: inline-block;
 						width: 50%;
 						text-align: left;
+						margin: 2px 0;
 					}
 				}
 			}

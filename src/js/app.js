@@ -103,10 +103,10 @@ $(".pic").click(function(){
         dynamicBullets: true
       },
       loop: true,
-     //   autoplay: {
-     //       delay: 3500,
-     //       disableOnInteraction:false
-     // },
+       autoplay: {
+           delay: 3500,
+           disableOnInteraction:false
+     },
   });
     // Banner
     const productAd = new Swiper('.swiper-container-product', {
