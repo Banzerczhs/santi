@@ -92,8 +92,12 @@ gulp.task('clear', function () {
 /**
  * Html 配置
  */
+import ejs from 'gulp-ejs'
+
 gulp.task('html', () => {
 	gulp.src(src.html)
+			.pipe(plumber())
+			.pipe(ejs())
 			.pipe(gulp.dest(dist.root))
 			.pipe(gulpif(cmd.watch, connect.reload()))
 })
