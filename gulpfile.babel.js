@@ -164,6 +164,7 @@ gulp.task('js', () => {
 gulp.task('watch', (cb) => {
 	if(!cmd.watch) return cb();
 	gulp.watch(src.html, ['html']);
+	gulp.watch('src/**/*.ejs', ['html']);
 	gulp.watch('src/css/**/*.*', ['css']);
 	gulp.watch('src/js/**/*.*', ['js']);
 })
