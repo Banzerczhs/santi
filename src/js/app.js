@@ -59,14 +59,6 @@ $(".pic").click(function(){
     });
     // 收藏
 
-    // $('.naver').hover(function() {
-    //     $('.hd-content').addClass('active');
-    //     $(this).find('ul').show();
-    // }, function() {
-    //     $('.hd-content').removeClass('active');
-    //     $(this).find('ul').hide();
-    // });
-
     $('.naver li').hover(function() {
         $('.naver ul').addClass('active');
         $(this).find('ul').show();
@@ -111,12 +103,12 @@ $(".pic").click(function(){
     // Banner
     const productAd = new Swiper('.swiper-container-product', {
         slidesPerView: 2,
-    spaceBetween: 20,
-    loop: true,
-    autoplay: {
-        delay: 1500,
-        disableOnInteraction:true
-    },
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+            delay: 1500,
+            disableOnInteraction:true
+        },
   });
 
     $('.inactive').click(function () {
