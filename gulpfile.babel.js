@@ -169,6 +169,7 @@ gulp.task('watch', (cb) => {
 	gulp.watch('src/css/**/*.*', ['css']);
 	gulp.watch('src/js/**/*.*', ['js']);
 	gulp.watch('src/img/**/*.*', ['copyStatic']);
+	gulp.watch('src/img/**/*.*', ['clear']);
 })
 
 
