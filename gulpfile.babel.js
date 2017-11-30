@@ -9,7 +9,7 @@ const INDEX_JS_BUILD = 'app.js';
  * Less入口文件 && 编译生成的文件
  */
 const INDEX_CSS = 'app.less';
-const INDEX_CSS_BUILD = 'app.less';
+const INDEX_CSS_BUILD = 'app.css';
 
 /**
  * 服务器 端口 && 目录
@@ -133,6 +133,7 @@ gulp.task('css', () => {
             cascade: false
        }))
 			.pipe(cssmin())
+			.pipe(rename(INDEX_CSS_BUILD))
 			.pipe(gulp.dest(dist.css))
 			.pipe(gulpif(cmd.watch, connect.reload()))
 })
