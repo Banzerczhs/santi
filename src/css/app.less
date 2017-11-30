@@ -38,7 +38,7 @@ body {
     width: 95%;
     box-shadow: 3px 3px 3px 1px #ccc;
     font-size: @SecondLevelFontSize;
-    >li {
+    > li {
       padding-left: 20%;
       line-height: @MenuPaddingLeft;
       border-bottom: 1px solid @divisionLine;
@@ -55,80 +55,50 @@ body {
           border: 1px solid #666;
           content: '';
         }
-        &:hover{
-          &:after{
-            background-color: #666;
-          }
-        }
-        &.inactives{
+        &:hover {
           &:after {
             background-color: #666;
           }
+        }
+        &.inactives {
+          &:after {
+            background-color: #666;
+          }
+        }
       }
-    }
 
-    .second-nav {
-      display: none;
-      .last-no-border;
-      > li {
-        padding-left: 10px;
-        line-height: @TitleHeight/2;
-        > a {
-          font-size: 14px;
+      .second-nav {
+        display: none;
+        .last-no-border;
+        > li {
+          padding-left: 10px;
+          line-height: @TitleHeight/2;
+          > a {
+            font-size: 14px;
+          }
         }
       }
-    }
-    .third-nav {
-      display: none;
-      .last-no-border;
-      > li {
-        padding-left: 10px;
-        line-height: @MenuPaddingLeft/2;
-        > a {
-          font-size: 13px;
+      .third-nav {
+        display: none;
+        .last-no-border;
+        > li {
+          padding-left: 10px;
+          line-height: @MenuPaddingLeft/2;
+          > a {
+            font-size: 13px;
+          }
         }
       }
-    }
-    .accordion-heading a {
-      position: relative;
-      padding-left: @MenuPaddingLeft;
-      display: inline-block;
-      height: 36px;
-      line-height: 36px;
-      color: @BlockColor;
-      &:after {
-        position: absolute;
-        left: @MenuPaddingLeft - 10;
-        top: 50% - 6;
-        width: 6px;
-        height: 6px;
-        content: '';
-        border: 1px solid #5d657a;
-      }
-      &:hover {
-        color: @MainHoverColor;
-        &:after {
-          background-color: #5d657a;
-        }
-      }
-      &.active {
-        color: @MainHoverColor;
-        &:after {
-          background-color: #5d657a;
-        }
-      }
-    }
-    .accordion-body {
-      margin-left: 40px;
-      list-style-type: none;
-      font-size: @MinFontSize;
-      .accordion-inner a {
-        padding-left: @MenuPaddingLeft/2;
-        height: 30px;
-        line-height: 30px;
+      .accordion-heading a {
+        position: relative;
+        padding-left: @MenuPaddingLeft;
+        display: inline-block;
+        height: 36px;
+        line-height: 36px;
+        color: @BlockColor;
         &:after {
           position: absolute;
-          left: @MenuPaddingLeft/2 - 10;
+          left: @MenuPaddingLeft - 10;
           top: 50% - 6;
           width: 6px;
           height: 6px;
@@ -148,10 +118,40 @@ body {
           }
         }
       }
+      .accordion-body {
+        margin-left: 40px;
+        list-style-type: none;
+        font-size: @MinFontSize;
+        .accordion-inner a {
+          padding-left: @MenuPaddingLeft/2;
+          height: 30px;
+          line-height: 30px;
+          &:after {
+            position: absolute;
+            left: @MenuPaddingLeft/2 - 10;
+            top: 50% - 6;
+            width: 6px;
+            height: 6px;
+            content: '';
+            border: 1px solid #5d657a;
+          }
+          &:hover {
+            color: @MainHoverColor;
+            &:after {
+              background-color: #5d657a;
+            }
+          }
+          &.active {
+            color: @MainHoverColor;
+            &:after {
+              background-color: #5d657a;
+            }
+          }
+        }
+      }
     }
   }
 }
-
 /*
 * 屏幕小于922px 显示的菜单
 */
@@ -230,5 +230,4 @@ body {
   .min-sub-nav {
     display: none;
   }
-}
 }
