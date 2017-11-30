@@ -168,6 +168,7 @@ gulp.task('watch', (cb) => {
 	gulp.watch('src/**/*.ejs', ['html']);
 	gulp.watch('src/css/**/*.*', ['css']);
 	gulp.watch('src/js/**/*.*', ['js']);
+	gulp.watch('src/img/**/*.*', ['copyStatic']);
 })
 
 
